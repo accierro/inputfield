@@ -7,6 +7,7 @@ import {
   fireEvent,
   getByText,
   getByRole,
+  queryByText,
 } from "@testing-library/react";
 
 describe("<TextInput />", () => {
@@ -18,6 +19,16 @@ describe("<TextInput />", () => {
       <TextInput label="Test" value="" onChange={() => {}} />
     );
     expect(container).toMatchSnapshot();
+  });
+
+  test("shows optional if the prop is passed", () => {
+    const { container, rerender } = render(
+      <TextInput label="Test" optional value="" onChange={() => {}} />
+    );
+    expect(getByText(container, "Optional")).toBeInTheDocument();
+
+    rerender(<TextInput label="Test" value="" onChange={() => {}} />);
+    expect(queryByText(container, "Optional")).toBeNull();
   });
 
   test("shows warning error if error prop is passed", () => {
