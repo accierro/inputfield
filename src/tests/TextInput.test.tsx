@@ -1,7 +1,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
-import Input from "../components/Input";
+import TextInput from "../components/TextInput";
 it("Renders without crashing", () => {
-  const wrapper = shallow(<Input />);
+  const wrapper = shallow(<TextInput />);
   expect(wrapper).toMatchSnapshot();
 });
