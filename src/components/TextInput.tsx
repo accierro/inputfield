@@ -7,7 +7,7 @@ import StyledTextInput from "../styled/StyledTextInput";
 import IconWithMessage from "./IconWithMessage";
 
 type TextInputProps = {
-  label?: string;
+  label: string;
   optional?: boolean;
   value: string;
   error?: string;
@@ -76,24 +76,22 @@ const TextInput: React.FC<TextInputProps> = ({
         value={value}
         onChange={onChangeHandler}
       />
-      {label && (
-        <Label error={error !== undefined}>
-          {label}
-          {optional && <OptionalLabel>Optional</OptionalLabel>}
-          {error && (
-            <IconWithMessage
-              icon={
-                <IoIosWarning
-                  size={20}
-                  color={colors.error}
-                  style={{ marginLeft: "8px" }}
-                />
-              }
-              message={error}
-            />
-          )}
-        </Label>
-      )}
+      <Label error={error !== undefined}>
+        {label}
+        {optional && <OptionalLabel>Optional</OptionalLabel>}
+        {error && (
+          <IconWithMessage
+            icon={
+              <IoIosWarning
+                size={20}
+                color={colors.error}
+                style={{ marginLeft: "8px" }}
+              />
+            }
+            message={error}
+          />
+        )}
+      </Label>
     </div>
   );
 };
