@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { IoIosWarning, IoIosEye } from "react-icons/io";
+import { IoIosWarning, IoIosEye, IoIosEyeOff } from "react-icons/io";
 
 import { colors } from "../colorConfig";
 
@@ -94,7 +94,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
             setShowPassword((prev) => !prev);
           }}
         >
-          <IoIosEye size={25} />
+          {showPassword ? <IoIosEyeOff size={25} /> : <IoIosEye size={25} />}
         </Touchable>
       </div>
       <Label
