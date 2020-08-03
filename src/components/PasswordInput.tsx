@@ -112,6 +112,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
           <IconWithMessage
             icon={
               <IoIosWarning
+                id="warning-icon-input"
                 size={20}
                 color={colors.error}
                 style={{ marginLeft: "8px" }}
