@@ -14,12 +14,6 @@ describe("<TextInput />", () => {
   afterEach(() => {
     cleanup();
   });
-  test("matches a snapshot", () => {
-    const { container } = render(
-      <TextInput label="Test" value="" onChange={() => {}} />
-    );
-    expect(container).toMatchSnapshot();
-  });
 
   test("shows optional if the prop is passed", () => {
     const { container, rerender } = render(

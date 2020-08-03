@@ -4,6 +4,8 @@ import { IoIosWarning } from "react-icons/io";
 
 import { colors } from "../colorConfig";
 import StyledTextInput from "../styled/StyledTextInput";
+import Label from "../styled/Label";
+
 import IconWithMessage from "./IconWithMessage";
 
 type TextInputProps = {
@@ -19,20 +21,6 @@ const OptionalLabel = styled.span`
   font-weight: 300;
   color: ${colors.mediumGrey};
   margin-left: 8px;
-`;
-
-type LabelProps = {
-  error: boolean;
-};
-
-const Label = styled.label`
-  font-size: 18px;
-  font-weight: normal;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  color: ${(props: LabelProps) =>
-    props.error ? colors.error : colors.darkGrey};
 `;
 
 const TextInput: React.FC<TextInputProps> = ({
