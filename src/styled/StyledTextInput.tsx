@@ -21,10 +21,6 @@ const StyledTextInput = styled.input`
     border: 1px solid ${colors.active};
     box-shadow: 0px 0px 3px ${colors.active}88;
   }
-
-  &:focus ~ label {
-    color: ${colors.active};
-  }
 `;
 
 export default StyledTextInput;
