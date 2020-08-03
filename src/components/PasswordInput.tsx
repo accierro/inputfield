@@ -37,7 +37,6 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   autocomplete = "off",
   onChange,
 }) => {
-  const ref = React.useRef<HTMLInputElement | null>(null);
   const [showPassword, setShowPassword] = React.useState(false);
   const [isFocused, setIsFocused] = React.useState(false);
 
@@ -47,12 +46,6 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
     },
     [onChange]
   );
-
-  React.useLayoutEffect(() => {
-    if (ref.current) {
-      console.log(ref.current.getBoundingClientRect());
-    }
-  }, []);
   // const onBlurHandler = React.useCallback(
   //   (e) => {
   //     if (validationFn) {
@@ -75,7 +68,6 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
     >
       <div style={{ position: "relative" }}>
         <StyledTextInput
-          ref={ref}
           id={id}
           style={{ paddingRight: "35px" }}
           autoComplete={autocomplete}

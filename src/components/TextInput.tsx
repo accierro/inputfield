@@ -9,6 +9,7 @@ import Label from "../styled/Label";
 import IconWithMessage from "./IconWithMessage";
 
 type TextInputProps = {
+  id: string;
   label: string;
   optional?: boolean;
   value: string;
@@ -24,12 +25,15 @@ const OptionalLabel = styled.span`
 `;
 
 const TextInput: React.FC<TextInputProps> = ({
+  id,
   label,
   optional = false,
   value,
   error,
   onChange,
 }) => {
+  const [isFocused, setIsFocused] = React.useState(false);
+
   // const [internalError, setInternalError] = React.useState<string | null>(null);
 
   const onChangeHandler = React.useCallback(
@@ -59,12 +63,28 @@ const TextInput: React.FC<TextInputProps> = ({
       }}
     >
       <StyledTextInput
+        id={id}
         error={error !== undefined}
         type="text"
         value={value}
         onChange={onChangeHandler}
+        onFocus={() => {
+          setIsFocused(true);
+        }}
+        onBlur={() => {
+          setIsFocused(false);
+        }}
       />
-      <Label error={error !== undefined}>
+      <Label
+        color={
+          isFocused
+            ? colors.active
+            : error !== undefined
+            ? colors.error
+            : undefined
+        }
+        htmlFor={id}
+      >
         {label}
         {optional && <OptionalLabel>Optional</OptionalLabel>}
         {error && (
