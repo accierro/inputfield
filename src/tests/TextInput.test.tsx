@@ -17,17 +17,26 @@ describe("<TextInput />", () => {
 
   test("shows optional if the prop is passed", () => {
     const { container, rerender } = render(
-      <TextInput label="Test" optional value="" onChange={() => {}} />
+      <TextInput
+        id="simple"
+        label="Test"
+        optional
+        value=""
+        onChange={() => {}}
+      />
     );
     expect(getByText(container, "Optional")).toBeInTheDocument();
 
-    rerender(<TextInput label="Test" value="" onChange={() => {}} />);
+    rerender(
+      <TextInput id="simple" label="Test" value="" onChange={() => {}} />
+    );
     expect(queryByText(container, "Optional")).toBeNull();
   });
 
   test("shows warning error if error prop is passed", () => {
     const { container } = render(
       <TextInput
+        id="simple"
         label="Test"
         value=""
         error="Can't be empty"
@@ -45,21 +54,23 @@ describe("<TextInput />", () => {
 
   test("displays correct value", () => {
     const { container, rerender } = render(
-      <TextInput label="Test" value="Hello" onChange={() => {}} />
+      <TextInput id="simple" label="Test" value="Hello" onChange={() => {}} />
     );
 
     expect(getByRole(container, "textbox").getAttribute("value")).toEqual(
       "Hello"
     );
 
-    rerender(<TextInput label="Test" value="1" onChange={() => {}} />);
+    rerender(
+      <TextInput id="simple" label="Test" value="1" onChange={() => {}} />
+    );
     expect(getByRole(container, "textbox").getAttribute("value")).toEqual("1");
   });
 
   test("onChange event is fired", () => {
     const mockFn = jest.fn();
     const { container } = render(
-      <TextInput label="Test" value="Hello" onChange={mockFn} />
+      <TextInput id="simple" label="Test" value="Hello" onChange={mockFn} />
     );
     fireEvent.change(getByRole(container, "textbox"), {
       target: { value: "check" },
