@@ -15,6 +15,7 @@ const StyledTextInput = styled.input`
   padding: 4px;
   font-size: 16px;
   width: 100%;
+  transition: border-color 0.3s, box-shadow 0.2s;
 
   &:focus {
     outline: none;
