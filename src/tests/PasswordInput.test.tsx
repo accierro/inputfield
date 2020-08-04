@@ -85,7 +85,6 @@ describe("<PasswordInput />", () => {
     );
     svg = container.querySelector("svg");
     if (svg) {
-      console.log("CLICK");
       fireEvent.click(svg);
     }
     expect(container.querySelector("input")?.getAttribute("type")).toEqual(
