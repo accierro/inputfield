@@ -1,8 +1,8 @@
 import * as React from "react";
-import TextInput from "../components/TextInput";
+import PasswordInput from "../components/PasswordInput";
 
 export default {
-  title: "Input",
+  title: "Password",
 };
 
 export const withLabel = () => {
@@ -14,48 +14,10 @@ export const withLabel = () => {
   return (
     <Parent>
       {(state, setState) => (
-        <TextInput
-          label="Simple Label"
+        <PasswordInput
+          id="password"
+          label="Password"
           value={state.value}
-          onChange={(s) => setState(s)}
-        />
-      )}
-    </Parent>
-  );
-};
-export const optional = () => {
-  function Parent({ children, ...props }) {
-    const [state, setState] = React.useState("");
-    return <div>{children(state, setState)}</div>;
-  }
-
-  return (
-    <Parent>
-      {(state, setState) => (
-        <TextInput
-          label="Simple Label"
-          optional={true}
-          value={state}
-          onChange={(s) => setState(s)}
-        />
-      )}
-    </Parent>
-  );
-};
-
-export const withValue = () => {
-  function Parent({ children, ...props }) {
-    const [state, setState] = React.useState("Hello");
-    return <div>{children(state, setState)}</div>;
-  }
-
-  return (
-    <Parent>
-      {(state, setState) => (
-        <TextInput
-          label="Simple Label"
-          optional={true}
-          value={state}
           onChange={(s) => setState(s)}
         />
       )}
@@ -72,15 +34,34 @@ export const withError = () => {
   return (
     <Parent>
       {(state, setState) => (
-        <>
-          <TextInput
-            label="Simple Label"
-            optional={true}
-            error="Can't be empty"
-            value={state}
-            onChange={(s) => setState(s)}
-          />
-        </>
+        <PasswordInput
+          id="password"
+          error="Not matching"
+          label="Password"
+          value={state.value}
+          onChange={(s) => setState(s)}
+        />
+      )}
+    </Parent>
+  );
+};
+
+export const withAutoComplete = () => {
+  function Parent({ children, ...props }) {
+    const [state, setState] = React.useState("");
+    return <div>{children(state, setState)}</div>;
+  }
+
+  return (
+    <Parent>
+      {(state, setState) => (
+        <PasswordInput
+          id="password"
+          autocomplete="new-password"
+          label="Password"
+          value={state.value}
+          onChange={(s) => setState(s)}
+        />
       )}
     </Parent>
   );
@@ -95,16 +76,15 @@ export const disabled = () => {
   return (
     <Parent>
       {(state, setState) => (
-        <>
-          <TextInput
-            label="Simple Label"
-            disabled
-            disabledReason="Because I can"
-            optional={true}
-            value={state}
-            onChange={(s) => setState(s)}
-          />
-        </>
+        <PasswordInput
+          id="password"
+          disabled
+          disabledReason="Because I can"
+          autocomplete="new-password"
+          label="Password"
+          value={state.value}
+          onChange={(s) => setState(s)}
+        />
       )}
     </Parent>
   );
