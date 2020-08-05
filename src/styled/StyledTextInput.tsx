@@ -17,6 +17,11 @@ const StyledTextInput = styled.input`
   width: 100%;
   transition: border-color 0.3s, box-shadow 0.2s;
 
+  &:disabled {
+    background: ${colors.lightestGrey};
+    cursor: not-allowed;
+  }
+
   &:focus {
     outline: none;
     border: 1px solid ${colors.active};

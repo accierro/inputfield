@@ -16,7 +16,7 @@ describe("<PasswordInput />", () => {
   });
 
   test("shows warning error if error prop is passed", () => {
-    const { container, debug } = render(
+    const { container } = render(
       <PasswordInput
         id="simple"
         label="Test"
@@ -89,6 +89,31 @@ describe("<PasswordInput />", () => {
     }
     expect(container.querySelector("input")?.getAttribute("type")).toEqual(
       "password"
+    );
+  });
+
+  test("disabled if the disabled prop is passed", () => {
+    const mockFn = jest.fn();
+    const { container, rerender } = render(
+      <PasswordInput id="simple" label="Test" value="Hello" onChange={mockFn} />
+    );
+    fireEvent.change(container.querySelector("input") ?? window, {
+      target: { value: "check" },
+    });
+    expect(mockFn).toBeCalledTimes(1);
+    expect(mockFn).toBeCalledWith("check");
+
+    rerender(
+      <PasswordInput
+        id="simple"
+        label="Test"
+        value="Hello"
+        disabled
+        onChange={mockFn}
+      />
+    );
+    expect(container.querySelector("input") ?? window).toHaveAttribute(
+      "disabled"
     );
   });
 });

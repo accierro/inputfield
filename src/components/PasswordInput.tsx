@@ -13,6 +13,8 @@ type PasswordInputProps = {
   id: string;
   label: string | React.ReactElement;
   value: string;
+  disabled?: boolean;
+  disabledReason?: string;
   error?: string;
   autocomplete?: "off" | "current-password" | "new-password";
   onChange: (s: string) => void;
@@ -33,6 +35,8 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   id,
   label = "password",
   value,
+  disabled,
+  disabledReason,
   error,
   autocomplete = "off",
   onChange,
@@ -69,6 +73,8 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
       <div style={{ position: "relative" }}>
         <StyledTextInput
           id={id}
+          disabled={disabled}
+          title={disabled ? disabledReason : undefined}
           style={{ paddingRight: "35px" }}
           autoComplete={autocomplete}
           error={error !== undefined}
@@ -98,6 +104,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
         </Touchable>
       </div>
       <Label
+        disabled={disabled}
         color={
           isFocused
             ? colors.active
