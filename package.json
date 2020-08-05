@@ -1,6 +1,6 @@
 {
   "name": "inputfield",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A Component library",
   "private": false,
   "main": "build/index.js",
@@ -55,7 +55,8 @@
   "peerDependencies": {
     "react": "^16",
     "react-dom": "^16",
-    "styled-components": "^5.1.1"
+    "react-icons": "^3",
+    "styled-components": "^5"
   },
   "jest": {
     "preset": "ts-jest",
@@ -80,8 +81,5 @@
       "afterAll",
       "jest"
     ]
-  },
-  "dependencies": {
-    "react-icons": "^3.10.0"
   }
 }
