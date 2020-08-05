@@ -78,4 +78,21 @@ describe("<TextInput />", () => {
     expect(mockFn).toBeCalledTimes(1);
     expect(mockFn).toBeCalledWith("check");
   });
+
+  test("disabled if the disabled prop is passed", () => {
+    const mockFn = jest.fn();
+    const { container, rerender } = render(
+      <TextInput id="simple" label="Test" value="Hello" onChange={mockFn} />
+    );
+    fireEvent.change(getByRole(container, "textbox"), {
+      target: { value: "check" },
+    });
+    expect(mockFn).toBeCalledTimes(1);
+    expect(mockFn).toBeCalledWith("check");
+
+    rerender(
+      <TextInput id="simple" label="Test" value="Hello" onChange={mockFn} />
+    );
+    expect(getByRole(container, "textbox")).not.toHaveAttribute("disabled");
+  });
 });

@@ -11,8 +11,10 @@ import IconWithMessage from "./IconWithMessage";
 type TextInputProps = {
   id: string;
   label: string;
-  optional?: boolean;
   value: string;
+  disabled?: boolean;
+  disabledReason?: string;
+  optional?: boolean;
   error?: string;
   onChange: (s: string) => void;
 };
@@ -28,6 +30,8 @@ const TextInput: React.FC<TextInputProps> = ({
   id,
   label,
   optional = false,
+  disabled = false,
+  disabledReason,
   value,
   error,
   onChange,
@@ -64,6 +68,8 @@ const TextInput: React.FC<TextInputProps> = ({
     >
       <StyledTextInput
         id={id}
+        disabled={disabled}
+        title={disabled ? disabledReason : undefined}
         error={error !== undefined}
         type="text"
         value={value}
@@ -76,6 +82,7 @@ const TextInput: React.FC<TextInputProps> = ({
         }}
       />
       <Label
+        disabled={disabled}
         color={
           isFocused
             ? colors.active
