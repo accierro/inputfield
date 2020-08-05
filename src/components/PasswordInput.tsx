@@ -100,7 +100,11 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
             setShowPassword((prev) => !prev);
           }}
         >
-          {showPassword ? <IoIosEyeOff size={25} /> : <IoIosEye size={25} />}
+          {showPassword ? (
+            <IoIosEyeOff size={25} color={colors.black} />
+          ) : (
+            <IoIosEye size={25} color={colors.black} />
+          )}
         </Touchable>
       </div>
       <Label
