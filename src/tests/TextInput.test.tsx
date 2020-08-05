@@ -91,8 +91,14 @@ describe("<TextInput />", () => {
     expect(mockFn).toBeCalledWith("check");
 
     rerender(
-      <TextInput id="simple" label="Test" value="Hello" onChange={mockFn} />
+      <TextInput
+        id="simple"
+        label="Test"
+        value="Hello"
+        disabled
+        onChange={mockFn}
+      />
     );
-    expect(getByRole(container, "textbox")).not.toHaveAttribute("disabled");
+    expect(getByRole(container, "textbox")).toHaveAttribute("disabled");
   });
 });
