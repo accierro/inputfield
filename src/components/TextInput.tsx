@@ -2,13 +2,13 @@ import * as React from "react";
 import styled from "styled-components";
 import { IoIosWarning } from "react-icons/io";
 
-import { colors } from "../colorConfig";
-import StyledTextInput from "../styled/StyledTextInput";
-import Label from "../styled/Label";
+import { colors } from "./static/colorConfig";
+import StyledTextInput from "./styled/StyledTextInput";
+import Label from "./styled/Label";
 
 import IconWithMessage from "./IconWithMessage";
 
-type TextInputProps = {
+interface TextInputProps {
   id: string;
   label: string;
   value: string;
@@ -17,7 +17,7 @@ type TextInputProps = {
   optional?: boolean;
   error?: string;
   onChange: (s: string) => void;
-};
+}
 
 const OptionalLabel = styled.span`
   font-size: 14px;
@@ -111,4 +111,4 @@ const TextInput: React.FC<TextInputProps> = ({
   );
 };
 
-export default TextInput;
+export { TextInput };

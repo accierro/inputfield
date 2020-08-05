@@ -2,14 +2,14 @@ import * as React from "react";
 import styled from "styled-components";
 import { IoIosWarning, IoIosEye, IoIosEyeOff } from "react-icons/io";
 
-import { colors } from "../colorConfig";
+import { colors } from "./static/colorConfig";
 
-import StyledTextInput from "../styled/StyledTextInput";
-import Label from "../styled/Label";
+import StyledTextInput from "./styled/StyledTextInput";
+import Label from "./styled/Label";
 
 import IconWithMessage from "./IconWithMessage";
 
-type PasswordInputProps = {
+interface PasswordInputProps {
   id: string;
   label: string | React.ReactElement;
   value: string;
@@ -18,7 +18,7 @@ type PasswordInputProps = {
   error?: string;
   autocomplete?: "off" | "current-password" | "new-password";
   onChange: (s: string) => void;
-};
+}
 
 const Touchable = styled.div`
   cursor: pointer;
@@ -133,4 +133,4 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   );
 };
 
-export default PasswordInput;
+export { PasswordInput };

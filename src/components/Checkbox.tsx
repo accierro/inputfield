@@ -1,14 +1,14 @@
 import * as React from "react";
 import styled from "styled-components";
-import { colors } from "../colorConfig";
+import { colors } from "./static/colorConfig";
 
-type CheckboxProps = {
+interface CheckboxProps {
   id: string;
   disabled?: boolean;
   label: string | React.ReactElement;
   value: boolean;
   onChange: (r: boolean) => void;
-};
+}
 
 const StyledCheckbox = styled.input`
   width: 21px;
@@ -121,4 +121,4 @@ const Checkbox: React.FC<CheckboxProps> = ({
     </div>
   );
 };
-export default Checkbox;
+export { Checkbox };

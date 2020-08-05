@@ -1,11 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
-import { colors } from "../colorConfig";
+import { colors } from "./static/colorConfig";
 
-type SubmitProps = {
+interface SubmitProps {
   placeholder: string;
   disabled?: boolean;
-};
+}
 
 const SubmitButton = styled.input`
   font-size: 20px;
@@ -40,4 +40,4 @@ const SubmitButton = styled.input`
 const Submit: React.FC<SubmitProps> = ({ placeholder, disabled = false }) => {
   return <SubmitButton type="submit" value={placeholder} disabled={disabled} />;
 };
-export default Submit;
+export { Submit };

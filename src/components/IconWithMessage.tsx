@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import { colors } from "../colorConfig";
+import { colors } from "./static/colorConfig";
 
-type IconWithMessageProps = {
+interface IconWithMessageProps {
   icon: React.ReactNode;
   message: string;
-};
+}
 
 const Message: React.FC<{ message: string }> = ({ message }) => {
   const ref = React.useRef<HTMLDivElement | null>(null);
