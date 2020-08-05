@@ -85,3 +85,27 @@ export const withError = () => {
     </Parent>
   );
 };
+
+export const disabled = () => {
+  function Parent({ children, ...props }) {
+    const [state, setState] = React.useState("");
+    return <div>{children(state, setState)}</div>;
+  }
+
+  return (
+    <Parent>
+      {(state, setState) => (
+        <>
+          <TextInput
+            label="Simple Label"
+            disabled
+            disabledReason="Because I can"
+            optional={true}
+            value={state}
+            onChange={(s) => setState(s)}
+          />
+        </>
+      )}
+    </Parent>
+  );
+};

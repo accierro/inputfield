@@ -66,3 +66,26 @@ export const withAutoComplete = () => {
     </Parent>
   );
 };
+
+export const disabled = () => {
+  function Parent({ children, ...props }) {
+    const [state, setState] = React.useState("");
+    return <div>{children(state, setState)}</div>;
+  }
+
+  return (
+    <Parent>
+      {(state, setState) => (
+        <PasswordInput
+          id="password"
+          disabled
+          disabledReason="Because I can"
+          autocomplete="new-password"
+          label="Password"
+          value={state.value}
+          onChange={(s) => setState(s)}
+        />
+      )}
+    </Parent>
+  );
+};

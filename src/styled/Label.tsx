@@ -3,6 +3,7 @@ import { colors } from "../colorConfig";
 
 type LabelProps = {
   color?: string;
+  disabled?: boolean;
 };
 
 const Label = styled.label`
@@ -11,7 +12,8 @@ const Label = styled.label`
   margin-bottom: 4px;
   display: flex;
   align-items: center;
-  color: ${(props: LabelProps) => props.color || colors.black};
+  color: ${(props: LabelProps) =>
+    props.disabled ? colors.mediumGrey : props.color || colors.black};
 `;
 
 export default Label;
