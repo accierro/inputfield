@@ -2,5 +2,6 @@ build
 dist/**/demos
 dist/**/examples
 dist/**/__snapshots__
-dist/**/*.test.js
+dist/**/*.test.tsx
+dits/**/*.stories.jsx
 dist/**/*.map
